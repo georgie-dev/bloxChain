@@ -5,11 +5,11 @@ import { NodeTable, NodeLine, Map } from ".";
 
 const Dashboard = () => {
   return (
-    <div className="px-20 bg-gray-100/40">
+    <div className="w-full px-4 md:px-20 bg-gray-100/40">
       <div className="py-4 border-b">
         <p className=" text-lg font-medium text-black">Ethereum Node Tracker</p>
       </div>
-      <small className="text-gray-500 flex items-center text-sm gap-1 py-3 font-bold">
+      <small className="text-gray-500 invisible md:visible flex items-center md:text-sm text-xs gap-1 py-3 font-bold">
         Featured:{" "}
         <span className=" font-normal">Elevate your website with curated</span>{" "}
         name tags and labels{" "}
@@ -23,11 +23,11 @@ const Dashboard = () => {
         <TbBulb className="text-gray-400" size={25}/>
         <small className="text-black text-[15px]">Node Tracker shows statistics of detected nodes running on the network. Statistics include the top 10 countries with the highest number of nodes, daily total nodes and node type by clients and OS. Learn more in our Knowledge Base.</small>
       </div>
-      <div className=" flex flex-nowrap my-4 w-full gap-10">
-        <div className="w-1/2">
+      <div className=" flex flex-col md:flex-row flex-nowrap my-4 w-full gap-10">
+        <div className="md:w-1/2 w-full">
             <NodeTable/>
         </div>
-        <div className="w-1/2">
+        <div className="md:w-1/2 w-full">
             <NodeLine/>
         </div>
       </div>

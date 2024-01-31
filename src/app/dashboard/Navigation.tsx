@@ -9,7 +9,7 @@ const Navigation = () => {
   const {userDetails} = useSelector((state : any)=> state.user)
 
   return (
-    <div className='w-full px-20 py-3 flex justify-between border-b'>
+    <div className='w-full px-4 md:px-20 py-3 flex justify-between border-b'>
         <Link href='#'>
         <Image
         alt='user'

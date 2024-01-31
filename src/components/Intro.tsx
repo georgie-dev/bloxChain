@@ -13,7 +13,7 @@ const Intro = () => {
             <form className=' flex gap-4'>
               {/* <label for='email' className=' focus:active:overflow-hidden focus:active:h-[1px] focus:active:absolute focus:active:whitespace-nowrap focus::active:w-[1px]'>Your email address</label> */}
               <input type='email' autoComplete='on' id='email' placeholder='Your email address' name='email' className=' w-full max-w-96 bg-white/10 border-none rounded-lg py-3 px-4 font-normal text-xl text-white overflow-visible placeholder:text-white placeholder:text-sm' />
-              <button type='button' className=' bg-[#ecf5fe] text-[#0c6cf2] text-sm inline-flex justify-center items-center py-3 px-5 font-medium rounded-lg cursor-pointer transition-all whitespace-nowrap'>Sign Up</button>
+              <Link href='/signup' className=' bg-[#ecf5fe] text-[#0c6cf2] text-sm inline-flex justify-center items-center py-3 px-5 font-medium rounded-lg cursor-pointer transition-all whitespace-nowrap'>Sign Up</Link>
             </form>
           </div>
         </div>
@@ -22,7 +22,7 @@ const Intro = () => {
         <div className=' relative flex justify-center w-full mt-[-70px]'>
           <div className=' flex flex-col items-end max-w-[62.5rem] w-full'>
             <div className=' w-full'>
-              <div className=' grid grid-cols-1 md:grid-cols-2 grid-cols-4 gap-6 rounded-lg w-full mb-5'>
+              <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 rounded-lg w-full mb-5'>
                 <Link href='#' className=' bg-white-grade rounded-lg text-[##121d33] min-w-0 p-5 transition-all' style={{    boxShadow : 'rgb(103 113 133 / 20%) 0.75rem 1.5rem 4rem 0rem'}}>
                   <div className=' flex items-start justify-between mb-2'>
                     <div className=' flex-shrink-0'>

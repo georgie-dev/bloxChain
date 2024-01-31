@@ -11,7 +11,7 @@ const Lightning = () => {
     return (
         <div className=' max-w-[80rem] box-content my-0 mx-auto py-0 px-10'>
             <section className=' bg-[#ecf5fe80] bg-lightning text-[#0c6cf2] rounded-[1.25rem] grid lg:grid-cols-2 grid-cols-1 bg-no-repeat min-h-[52.5rem] my-[3.75rem] mx-auto max-w-[80rem]' style={{ backgroundPositionX : ' left', backgroundPositionY: 'bottom 2.5rem'}}>
-                <div className=' flex flex-col justify-center pl-[8.75rem]'>
+                <div className=' flex flex-col justify-center lg:pl-[8.75rem] md:visible invisible'>
                     <div>
                         <div className=' h-full w-full relative flex items-center justify-center'>
                             <Image
@@ -24,7 +24,7 @@ const Lightning = () => {
                         </div>
                     </div>
                 </div>
-                <div className=' flex flex-col pl-[5rem] justify-start py-[100px]'>
+                <div className=' flex flex-col lg:pl-[5rem] pl-4 justify-start py-[100px]'>
                     <div className=' bg-[#ecf5fe] text-[#3d89f5] inline-flex items-center self-start mb-5 p-4 rounded-[1.25rem]'>
                         <svg width="137" height="32" className=' h-8 w-8' fill="none"><mask id="a" height="30" maskUnits="userSpaceOnUse" width="30" x="1" y="1"><rect fill="#c4c4c4" height="28" rx="3" stroke="#f5a250" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="28" x="2" y="2"></rect></mask><g mask="url(#a)" stroke="#0c6cf2" stroke-width="2"><g stroke-linecap="round"><rect fill="#fff" height="28" rx="3" stroke-linejoin="round" width="28" x="2" y="2"></rect><path d="m27 7 3-1v24h-28v-5l3-7 4 1 7-8 7-1z" fill="#0c6cf2" fill-opacity=".36" stroke-linejoin="round"></path><path d="m16 16v14"></path><path d="m9 22v8"></path><path d="m16 2v4"></path><path d="m23 14v16"></path></g><circle cx="16" cy="11" fill="#fff" r="2"></circle></g></svg>
                         <p className=' text-lg ml-[10px]'>Exchange</p>

@@ -25,14 +25,14 @@ const NodeTable = () => {
           <thead className="p-3">
             <tr className="p-2 text-black">
               <th className="w-fit px-2">#</th>
-              <th className="w-fit">Countries</th>
-              <th className="flex items-center gap-1 w-fit">
+              <th className="w-fit text-xs md:text-base">Countries</th>
+              <th className="flex items-center gap-1 w-fit text-xs md:text-base">
                 Last 24 Hours <AiFillCaretDown />
               </th>
-              <th className="w-fit">
+              <th className="w-fit text-xs md:text-base">
               Last 24 Hours
               </th>
-              <th className="w-fit">
+              <th className="w-fi text-xs md:text-baset">
                 Last 7 Days
               </th>
             </tr>
