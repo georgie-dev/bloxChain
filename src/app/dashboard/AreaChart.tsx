@@ -11,7 +11,7 @@ const AreaChart = () => {
           width: 600,
           height: 300,
           events: {
-            load: function () {
+            load: function (this: Highcharts.Chart) {
                 var chart = this,
                     image = chart.renderer.image('/logo-etherscan.svg', 250, 100, 110, 25).add();
             }
@@ -42,9 +42,9 @@ const AreaChart = () => {
               fillColor: {
                   linearGradient: [0, 0, 0, 250],
                   stops: [
-                      [0, Highcharts.getOptions().colors[0]],
-                      [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                  ]
+                    [0, Highcharts.getOptions()?.colors[0] ?? 'defaultColor'],
+                    [1, Highcharts.color(Highcharts.getOptions()?.colors[0]).setOpacity(0).get('rgba')]
+                ]
               }
           }
       },
