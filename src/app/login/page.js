@@ -7,7 +7,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
-import {LOGIN} from '../../store/user'
+import {LOG} from '../../store/user';
 import { reset } from "../../store/user";
 
 
@@ -16,17 +16,17 @@ const Log = () => {
   const [password, setPassword] = useState(false);
   const [input, setInput] = useState({});
 
-  interface User {
-    email: string,
-    password: string,
-  }
+  // interface User {
+  //   email: string,
+  //   password: string,
+  // }
   
   const dispatch = useDispatch();
   const router = useRouter()
-  const { isLoading, isAuthenticated, userDetails } = useSelector((state:any) => state.user)
+  const { isLoading, isAuthenticated, userDetails } = useSelector((state) => state.user)
 
 
-  const handleChange = (event: any) => {
+  const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInput(values => ({ ...values, [name]: value }))
@@ -37,10 +37,10 @@ const Log = () => {
     setPassword(false)
   }
 
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     formReset();
-    dispatch(LOGIN(input))
+    dispatch(LOG(input))
   }
 
   useEffect(() => {

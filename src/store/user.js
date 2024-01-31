@@ -1,12 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
 
-
-export const LOGIN = createAsyncThunk(
-  "user/LOGIN",
+export const LOG = createAsyncThunk(
+  "user/LOG",
   async (userDetails, thunkAPI) => {
     try {
-      const user = await axios.post(`https://blokchain.onrender.com/login/`, userDetails);
+      const user = await axios.post(`https://blokchain.onrender.com/log/`, userDetails);
       return user.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -37,18 +36,18 @@ export const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(LOGIN.pending, (state) => {
+      .addCase(LOG.pending, (state) => {
         state.isLoading = true;
         state.isAuthenticated = false;
       })
 
-      .addCase(LOGIN.fulfilled, (state, action) => {
+      .addCase(LOG.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isAuthenticated = true;
         state.userDetails = action.payload;
       })
 
-      .addCase(LOGIN.rejected, (state) => {
+      .addCase(LOG.rejected, (state) => {
         state.isLoading = false;
         state.isAuthenticated = false;
       });
