@@ -10,7 +10,7 @@ const Lightning = () => {
 
     return (
         <div className=' max-w-[80rem] box-content my-0 mx-auto py-0 px-10'>
-            <section className=' bg-[#ecf5fe80] bg-lightning text-[#0c6cf2] rounded-[1.25rem] grid bg-no-repeat min-h-[52.5rem] my-[3.75rem] mx-auto max-w-[80rem]' style={{gridTemplateColumns : '1fr 1fr' , backgroundPositionX : ' left', backgroundPositionY: 'bottom 2.5rem'}}>
+            <section className=' bg-[#ecf5fe80] bg-lightning text-[#0c6cf2] rounded-[1.25rem] grid lg:grid-cols-2 grid-cols-1 bg-no-repeat min-h-[52.5rem] my-[3.75rem] mx-auto max-w-[80rem]' style={{ backgroundPositionX : ' left', backgroundPositionY: 'bottom 2.5rem'}}>
                 <div className=' flex flex-col justify-center pl-[8.75rem]'>
                     <div>
                         <div className=' h-full w-full relative flex items-center justify-center'>

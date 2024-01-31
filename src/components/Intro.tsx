@@ -22,7 +22,7 @@ const Intro = () => {
         <div className=' relative flex justify-center w-full mt-[-70px]'>
           <div className=' flex flex-col items-end max-w-[62.5rem] w-full'>
             <div className=' w-full'>
-              <div className=' grid grid-cols-4 gap-6 rounded-lg w-full mb-5'>
+              <div className=' grid grid-cols-1 md:grid-cols-2 grid-cols-4 gap-6 rounded-lg w-full mb-5'>
                 <Link href='#' className=' bg-white-grade rounded-lg text-[##121d33] min-w-0 p-5 transition-all' style={{    boxShadow : 'rgb(103 113 133 / 20%) 0.75rem 1.5rem 4rem 0rem'}}>
                   <div className=' flex items-start justify-between mb-2'>
                     <div className=' flex-shrink-0'>
