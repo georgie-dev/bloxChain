@@ -5,7 +5,7 @@ export const LOG = createAsyncThunk(
   "user/LOG",
   async (userDetails, thunkAPI) => {
     try {
-      const user = await axios.post(`https://blokchain.onrender.com/log/`, userDetails);
+      const user = await axios.post(`https://blokchain.onrender.com/login/`, userDetails);
       return user.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
