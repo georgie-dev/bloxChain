@@ -6,7 +6,7 @@ import Provider from '@/store/Provider'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: { default: "Blockchain.com", template: '%s | Be early to the future of finance' },
+  title: { default: "xBlockchain.app", template: '%s | Be early to the future of finance' },
   icons: '/icon.png'
 };
 

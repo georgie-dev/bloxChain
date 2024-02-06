@@ -66,21 +66,22 @@ const Log = () => {
                     className=" flex flex-row justify-center items-center text-base text-[#0c6cf2] cursor-pointer font-sans"
                   >
                     <Image
-                      alt="logo"
-                      src="/bc-logo.svg"
-                      width={240}
-                      height={24}
-                    />
+                alt='logo'
+                src='/xBlockchain.png'
+                width={432}
+                height={48}
+                priority
+                />
                   </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className=" flex flex-col justify-center items-center z-10 max-w-full box-border my-0 mx-4">
+        <div className=" flex flex-col justify-center items-center z-10 max-w-full box-border my-5 mx-4">
           <div className=" flex relative flex-col items-center">
-            <div className=" first:mr-0 flex items-center flex-col w-[35rem]">
-              <div className=" bg-white w-[28rem] rounded-xl box-border">
+            <div className=" first:mr-0 flex items-center flex-col w-full md:w-[35rem]">
+              <div className=" bg-white w-full md:w-[28rem] rounded-xl box-border">
                 <div className=" pt-8 px-8 pb-0">
                   <div className=" flex justify-center gap-3 items-center">
                     <Image
@@ -156,14 +157,14 @@ const Log = () => {
                     </div>
                   </form>
                 </div>
-                <div className=" flex justify-center mt-6 border-t border-[#f0f2f7] pb-6">
+                <div className=" flex justify-center mt-6 border-t border-[#f0f2f7] pb-6 px-4">
                   <div className=" flex gap-1 items-center">
-                    <div className=" cursor-pointer mt-4 font-sans font-normal text-base text-[#677184] block opacity-100">
+                    <div className=" cursor-pointer mt-4 font-sans font-normal text-sm md:text-base text-[#677184] block opacity-100">
                       Don't Have a Blockchain Account?
                     </div>
                     <Link
                       href="/signup"
-                      className=" cursor-pointer mt-4 font-sans font-normal text-base text-[#0c6cf2] block opacity-100"
+                      className=" cursor-pointer mt-4 font-sans font-normal text-sm md:text-base text-[#0c6cf2] block opacity-100"
                     >
                       Sign up Now
                     </Link>
@@ -173,7 +174,7 @@ const Log = () => {
             </div>
           </div>
         </div>
-        <div className=" mb-8 flex  justify-center items-center flex-col w-full mt-[164px]">
+        <div className=" mb-0 md:mb-8 flex  justify-center items-center flex-col w-full mt-52 md:mt-[164px]">
           <div className=" pt-8 px-8 pb-0 flex gap-1 items-center text-xl">
             <div className=" mx-2 inline-flex relative text-gray-400 text-base">
               {" "}

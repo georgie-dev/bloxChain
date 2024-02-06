@@ -58,11 +58,12 @@ const Signup = () => {
                     className=" flex flex-row justify-center items-center text-base text-[#0c6cf2] cursor-pointer font-sans"
                   >
                     <Image
-                      alt="logo"
-                      src="/bc-logo.svg"
-                      width={240}
-                      height={24}
-                    />
+                alt='logo'
+                src='/xBlockchain.png'
+                width={432}
+                height={48}
+                priority
+                />
                   </Link>
                 </div>
               </div>
@@ -71,14 +72,14 @@ const Signup = () => {
         </div>
         <div className=" flex flex-col justify-center items-center z-10 max-w-full box-border my-0 mx-4">
           <div className=" flex relative flex-col items-center">
-            <div className=" first:mr-0 flex items-center flex-col w-[33rem]">
+            <div className=" first:mr-0 flex items-center flex-col w-full md:w-[33rem]">
               <div className=" bg-white rounded-xl box-border">
                 <div className=" pt-8 px-8 pb-0">
                   <div className=" flex flex-col items-center">
-                    <div className=" font-sans font-semibold text-2xl text-[#121d33] block opacity-100">
+                    <div className=" font-sans font-semibold text-xl text-center md:text-left md:text-2xl text-[#121d33] block opacity-100">
                       Create Your Blockchain.com Account
                     </div>
-                    <div className=" mt-2 font-sans font-normal text-base text-[#121d33] block opacity-100">
+                    <div className=" mt-2 font-sans font-normal text-center md:text-left text-base text-[#121d33] block opacity-100">
                       Get Started For Free by Signing Up Now.
                     </div>
                   </div>
@@ -214,12 +215,12 @@ const Signup = () => {
                     </div>
                   </form>
                 </div>
-                <div className=" flex justify-center mt-6 border-t border-[#f0f2f7] pb-6">
-                  <div className=" flex items-center">
-                    <div className=" cursor-pointer mt-4 font-sans font-normal text-base text-[#677184] block opacity-100">
+                <div className=" flex justify-center mt-6 border-t border-[#f0f2f7] pb-6 px-4">
+                  <div className=" flex items-center gap-1">
+                    <div className=" cursor-pointer mt-4 font-sans font-normal text-sm md:text-base text-[#677184] block opacity-100">
                       Already have a Blockchain.com Account?
                     </div>
-                    <Link href='/login' className=" cursor-pointer mt-4 font-sans font-normal text-base text-[#0c6cf2] block opacity-100">
+                    <Link href='/login' className=" cursor-pointer mt-4 font-sans font-normal text-sm md:text-base text-[#0c6cf2] block opacity-100">
                       Log In
                     </Link>
                   </div>
@@ -228,7 +229,7 @@ const Signup = () => {
             </div>
           </div>
         </div>
-        <div className=" flex  justify-center items-center flex-col w-full mt-24 mb-0 mx-8">
+        <div className=" flex  justify-center items-center flex-col w-full mt-24 mb-0 mx-0 md:mx-8">
           <div className=" pt-8 px-8 pb-0 flex gap-1 items-center text-xl">
             <div className=" mx-2 inline-flex relative text-gray-400 text-base"> English</div>
             <div className=" Text-gray-400 mx-2 text-base text-gray-400">Version 4.97.2</div>
