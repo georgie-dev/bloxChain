@@ -22,15 +22,6 @@ const Signup = () => {
     setInput(values => ({ ...values, [name]: value }))
   }
 
-  // interface User {
-  //   id: number,
-  //   email: string,
-  //   password: string,
-  //   password2: string,
-  //   wallet: null,
-  //   nationality: string
-  //   referral: string,
-  // }
 
   const handleSubmit = async (event: any) => {
     event.preventDefault()

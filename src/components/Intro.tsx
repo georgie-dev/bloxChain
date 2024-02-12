@@ -4,9 +4,18 @@ import Link from 'next/link'
 import Image from 'next/image'
 import axios from 'axios'
 
+interface Crypto {
+  open: string,
+  high: string,
+  low: string,
+  last: string,
+  volume: string,
+  volume_30day: string,
+}
+
 const Intro = () => {
 
-  const [data, setData] = useState([])
+  const [data, setData] = useState<Crypto[]>([])
 
 
   useEffect(() => {
