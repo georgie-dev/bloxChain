@@ -78,10 +78,18 @@ const Intro = () => {
                     <p className=' font-medium text-base text-black'>Bitcoin</p>
                     <p className=' text-[#677185] ml-2 font-medium text-base'>BTC</p>
                   </div>
-                  <div className=' flex'>
-                    <p className=' font-medium text-base text-black'>${parseFloat(data[0]?.last).toLocaleString()}</p>
-                    <p className={`ml-2 font-medium text-base ${(((data[0]?.last - data[0]?.open) / data[0]?.open) * 100).toFixed(2) < 0 ? 'text-[#ff443a]' : 'text-[#00b26b]'}`}>{(((data[0]?.last - data[0]?.open) / data[0]?.open) * 100).toFixed(2)}%</p>
+                  <div className='flex'>
+                    <p className='font-medium text-base text-black'>
+                      ${parseFloat(data[0]?.last).toLocaleString()}
+                    </p>
+                    <p className={`ml-2 font-medium text-base ${(Number(((parseFloat(data[0]?.last) - parseFloat(data[0]?.open)) / parseFloat(data[0]?.open)) * 100).toFixed(2)) < '0'
+                      ? 'text-[#ff443a]'
+                      : 'text-[#00b26b]'
+                      }`}>
+                      {(((parseFloat(data[0]?.last) - parseFloat(data[0]?.open)) / parseFloat(data[0]?.open)) * 100).toFixed(2)}%
+                    </p>
                   </div>
+
                   <div className=' hidden mt-2'></div>
                 </Link>
                 <Link href='#' className=' bg-white-grade rounded-lg text-[##121d33] min-w-0 p-5 transition-all' style={{ boxShadow: 'rgb(103 113 133 / 20%) 0.75rem 1.5rem 4rem 0rem' }}>
@@ -106,7 +114,7 @@ const Intro = () => {
                   </div>
                   <div className=' flex'>
                     <p className=' font-medium text-base text-black'>${parseFloat(data[1]?.last).toLocaleString()}</p>
-                    <p className={`ml-2 font-medium text-base ${(((data[1]?.last - data[1]?.open) / data[1]?.open) * 100).toFixed(2) < 0 ? 'text-[#ff443a]' : 'text-[#00b26b]'}`}>{(((data[1]?.last - data[1]?.open) / data[1]?.open) * 100).toFixed(2)}%</p>
+                    <p className={`ml-2 font-medium text-base ${Number(((parseFloat(data[1]?.last) - parseFloat(data[1]?.open)) / parseFloat(data[1]?.open)) * 100).toFixed(2) < '0' ? 'text-[#ff443a]' : 'text-[#00b26b]'}`}>{Number(((parseFloat(data[1]?.last) - parseFloat(data[1]?.open)) / parseFloat(data[1]?.open)) * 100).toFixed(2)}%</p>
                   </div>
                   <div className=' hidden mt-2'></div>
                 </Link>
@@ -130,10 +138,18 @@ const Intro = () => {
                     <p className=' font-medium text-base text-black'>Stellar</p>
                     <p className=' text-[#677185] ml-2 font-medium text-base'>XLM</p>
                   </div>
-                  <div className=' flex'>
-                    <p className=' font-medium text-base text-black'>${parseFloat(data[2]?.last).toFixed(2)}</p>
-                    <p className={`ml-2 font-medium text-base ${(((data[2]?.last - data[2]?.open) / data[2]?.open) * 100).toFixed(2) < 0 ? 'text-[#ff443a]' : 'text-[#00b26b]'}`}>{(((data[2]?.last - data[2]?.open) / data[2]?.open) * 100).toFixed(2)}%</p>
+                  <div className='flex'>
+                    <p className='font-medium text-base text-black'>
+                      ${parseFloat(data[2]?.last).toLocaleString()}
+                    </p>
+                    <p className={`ml-2 font-medium text-base ${(Number(((parseFloat(data[2]?.last) - parseFloat(data[2]?.open)) / parseFloat(data[2]?.open)) * 100).toFixed(2)) < '0'
+                      ? 'text-[#ff443a]'
+                      : 'text-[#00b26b]'
+                      }`}>
+                      {(((parseFloat(data[2]?.last) - parseFloat(data[2]?.open)) / parseFloat(data[2]?.open)) * 100).toFixed(2)}%
+                    </p>
                   </div>
+
                   <div className=' hidden mt-2'></div>
                 </Link>
                 <Link href='#' className=' bg-white-grade rounded-lg text-[##121d33] min-w-0 p-5 transition-all' style={{ boxShadow: 'rgb(103 113 133 / 20%) 0.75rem 1.5rem 4rem 0rem' }}>
@@ -156,10 +172,18 @@ const Intro = () => {
                     <p className=' font-medium text-base text-black'>Solana</p>
                     <p className=' text-[#677185] ml-2 font-medium text-base'>SOL</p>
                   </div>
-                  <div className=' flex'>
-                    <p className=' font-medium text-base text-black'>${parseFloat(data[3]?.last).toLocaleString()}</p>
-                    <p className={`ml-2 font-medium text-base ${(((data[3]?.last - data[3]?.open) / data[3]?.open) * 100).toFixed(2) < 0 ? 'text-[#ff443a]' : 'text-[#00b26b]'}`}>{(((data[3]?.last - data[3]?.open) / data[3]?.open) * 100).toFixed(2)}%</p>
+                  <div className='flex'>
+                    <p className='font-medium text-base text-black'>
+                      ${parseFloat(data[3]?.last).toLocaleString()}
+                    </p>
+                    <p className={`ml-2 font-medium text-base ${(Number(((parseFloat(data[3]?.last) - parseFloat(data[3]?.open)) / parseFloat(data[3]?.open)) * 100).toFixed(2)) < '0'
+                        ? 'text-[#ff443a]'
+                        : 'text-[#00b26b]'
+                      }`}>
+                      {(((parseFloat(data[3]?.last) - parseFloat(data[3]?.open)) / parseFloat(data[3]?.open)) * 100).toFixed(2)}%
+                    </p>
                   </div>
+
                   <div className=' hidden mt-2'></div>
                 </Link>
               </div>
