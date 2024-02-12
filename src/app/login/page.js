@@ -1,16 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
-'use client'
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
-import {LOG} from '../../store/user';
-import { reset } from "../../store/user";
-
-
+import { LOG } from "../../store/user";
+import { reset, clearError } from "../../store/user";
+import { ScaleLoader } from "react-spinners";
 
 const Log = () => {
   const [password, setPassword] = useState(false);
@@ -20,37 +19,42 @@ const Log = () => {
   //   email: string,
   //   password: string,
   // }
-  
-  const dispatch = useDispatch();
-  const router = useRouter()
-  const { isLoading, isAuthenticated, userDetails } = useSelector((state) => state.user)
 
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const { isLoading, isAuthenticated, isError } = useSelector(
+    (state) => state.user
+  );
 
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setInput(values => ({ ...values, [name]: value }))
-  }
+    setInput((values) => ({ ...values, [name]: value }));
+  };
 
   const formReset = () => {
     setInput({});
-    setPassword(false)
-  }
+    setPassword(false);
+  };
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     formReset();
     dispatch(LOG(input))
-  }
+    .then(() => {
+      setTimeout(() => {
+        dispatch(clearError());
+      }, 3000);
+    })
+  };
 
   useEffect(() => {
-    if(isAuthenticated){
-      router.push('/dashboard')
+    if (isAuthenticated) {
+      router.push("/dashboard");
     }
-    dispatch(reset())
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated])
-
+    dispatch(reset());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
 
   return (
     <div className=" m-0 p-0 h-full">
@@ -66,12 +70,12 @@ const Log = () => {
                     className=" flex flex-row justify-center items-center text-base text-[#0c6cf2] cursor-pointer font-sans"
                   >
                     <Image
-                alt='logo'
-                src='/xBlockchain.png'
-                width={432}
-                height={48}
-                priority
-                />
+                      alt="logo"
+                      src="/xBlockchain.png"
+                      width={432}
+                      height={48}
+                      priority
+                    />
                   </Link>
                 </div>
               </div>
@@ -95,6 +99,9 @@ const Log = () => {
                     </div>
                   </div>
                   <form className=" mt-5 w-full" onSubmit={handleSubmit}>
+                    <div className="w-full my-3 flex justify-center">
+                    <small className="text-center text-sm text-[#ff443a] w-full font-semibold mx-auto">{isError?.error}</small>
+                    </div>
                     <div className=" w-full flex relative flex-col mb-4">
                       <div className=" last:mr-0 *:max-h-[26rem] transition-all relative w-full">
                         <label>
@@ -124,7 +131,6 @@ const Log = () => {
                         </label>
                         <div className=" flex w-full items-center relative">
                           <input
-                            
                             type={password ? "text" : "password"}
                             name="password"
                             required
@@ -132,27 +138,45 @@ const Log = () => {
                             className="block w-full h-12 min-h-12 py-[6px] px-3 text-base font-normal text-[#121d33] bg-white font-sans border rounded-lg"
                             placeholder="Enter Password"
                           />
-                          {
-                            password ?
-                              <AiOutlineEyeInvisible
-                                className='text-2xl absolute right-2 top-3 text-black opacity-100 cursor-pointer'
-                                onClick={() => { setPassword(!password) }}
-                              /> :
-                              <AiOutlineEye
-                                className='text-2xl absolute right-2 top-3 text-black opacity-100 cursor-pointer'
-                                onClick={() => { setPassword(!password) }}
-                              />
-                          }
+                          {password ? (
+                            <AiOutlineEyeInvisible
+                              className="text-2xl absolute right-2 top-3 text-black opacity-100 cursor-pointer"
+                              onClick={() => {
+                                setPassword(!password);
+                              }}
+                            />
+                          ) : (
+                            <AiOutlineEye
+                              className="text-2xl absolute right-2 top-3 text-black opacity-100 cursor-pointer"
+                              onClick={() => {
+                                setPassword(!password);
+                              }}
+                            />
+                          )}
                         </div>
                         <div className=" absolute block -top-5 r-0 h-4 font-sans font-normal text-xs text-[#d93b30] opacity-0"></div>
                       </div>
                     </div>
 
                     <div className=" flex flex-col items-center">
-                      <button type="submit" className=" my-4 flex flex-row justify-center items-center w-full min-w-[140px] h-12 py-[10px] px-[15px] font-sans text-center align-middle transition-all whitespace-nowrap  text-sm rounded-lg text-white opacity-100 border bg-[#0c6cf2] border-[#0c6cf2]" >
-                        <div className=" font-sans font-medium text-base text-white block opacity-100">
-                          Continue
-                        </div>
+                      <button
+                        type="submit"
+                        className=" my-4 flex flex-row justify-center items-center w-full min-w-[140px] h-12 py-[10px] px-[15px] font-sans text-center align-middle transition-all whitespace-nowrap  text-sm rounded-lg text-white opacity-100 border bg-[#0c6cf2] border-[#0c6cf2] disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={isLoading}
+                      >
+                        {!isLoading ? (
+                          <div className=" font-sans font-medium text-base text-white block opacity-100">
+                            Continue
+                          </div>
+                        ) : (
+                          <ScaleLoader
+                            color="#B7E8EB"
+                            loading={isLoading}
+                            height={20}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                          />
+                        )}
                       </button>
                     </div>
                   </form>

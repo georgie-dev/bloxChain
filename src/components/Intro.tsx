@@ -1,8 +1,34 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import axios from 'axios'
 
 const Intro = () => {
+
+  const [data, setData] = useState([])
+
+
+  useEffect(() => {
+    const crypto = ['BTC', 'ETH', 'XLM', 'SOL']
+    const fetchData = async () => {
+      try {
+        const cryptoData = await Promise.all(
+          crypto.map(async (item) => {
+            const response = await axios.get(`https://api.pro.coinbase.com/products/${item}-USD/stats`);
+            return response.data;
+          })
+        );
+        setData(cryptoData);
+        // console.log(cryptoData)
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <div className=' bg-[#144699] bg-intro bg-no-repeat bg-cover bg-bottom text-white'>
@@ -23,7 +49,7 @@ const Intro = () => {
           <div className=' flex flex-col items-end max-w-[62.5rem] w-full'>
             <div className=' w-full'>
               <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 rounded-lg w-full mb-5'>
-                <Link href='#' className=' bg-white-grade rounded-lg text-[##121d33] min-w-0 p-5 transition-all' style={{    boxShadow : 'rgb(103 113 133 / 20%) 0.75rem 1.5rem 4rem 0rem'}}>
+                <Link href='#' className=' bg-white-grade rounded-lg text-[##121d33] min-w-0 p-5 transition-all' style={{ boxShadow: 'rgb(103 113 133 / 20%) 0.75rem 1.5rem 4rem 0rem' }}>
                   <div className=' flex items-start justify-between mb-2'>
                     <div className=' flex-shrink-0'>
                       <Image
@@ -44,12 +70,12 @@ const Intro = () => {
                     <p className=' text-[#677185] ml-2 font-medium text-base'>BTC</p>
                   </div>
                   <div className=' flex'>
-                    <p className=' font-medium text-base text-black'>$41,816.67</p>
-                    <p className=' text-[#ff443a] ml-2 font-medium text-base'>-0.18%</p>
+                    <p className=' font-medium text-base text-black'>${parseFloat(data[0]?.last).toLocaleString()}</p>
+                    <p className={`ml-2 font-medium text-base ${(((data[0]?.last - data[0]?.open) / data[0]?.open) * 100).toFixed(2) < 0 ? 'text-[#ff443a]' : 'text-[#00b26b]'}`}>{(((data[0]?.last - data[0]?.open) / data[0]?.open) * 100).toFixed(2)}%</p>
                   </div>
                   <div className=' hidden mt-2'></div>
                 </Link>
-                <Link href='#' className=' bg-white-grade rounded-lg text-[##121d33] min-w-0 p-5 transition-all' style={{    boxShadow : 'rgb(103 113 133 / 20%) 0.75rem 1.5rem 4rem 0rem'}}>
+                <Link href='#' className=' bg-white-grade rounded-lg text-[##121d33] min-w-0 p-5 transition-all' style={{ boxShadow: 'rgb(103 113 133 / 20%) 0.75rem 1.5rem 4rem 0rem' }}>
                   <div className=' flex items-start justify-between mb-2'>
                     <div className=' flex-shrink-0'>
                       <Image
@@ -70,12 +96,12 @@ const Intro = () => {
                     <p className=' text-[#677185] ml-2 font-medium text-base'>ETH</p>
                   </div>
                   <div className=' flex'>
-                    <p className=' font-medium text-base text-black'>$2,264.22</p>
-                    <p className=' text-[#ff443a] ml-2 font-medium text-base'>-0.19%</p>
+                    <p className=' font-medium text-base text-black'>${parseFloat(data[1]?.last).toLocaleString()}</p>
+                    <p className={`ml-2 font-medium text-base ${(((data[1]?.last - data[1]?.open) / data[1]?.open) * 100).toFixed(2) < 0 ? 'text-[#ff443a]' : 'text-[#00b26b]'}`}>{(((data[1]?.last - data[1]?.open) / data[1]?.open) * 100).toFixed(2)}%</p>
                   </div>
                   <div className=' hidden mt-2'></div>
                 </Link>
-                <Link href='#' className=' bg-white-grade rounded-lg text-[##121d33] min-w-0 p-5 transition-all' style={{    boxShadow : 'rgb(103 113 133 / 20%) 0.75rem 1.5rem 4rem 0rem'}}>
+                <Link href='#' className=' bg-white-grade rounded-lg text-[##121d33] min-w-0 p-5 transition-all' style={{ boxShadow: 'rgb(103 113 133 / 20%) 0.75rem 1.5rem 4rem 0rem' }}>
                   <div className=' flex items-start justify-between mb-2'>
                     <div className=' flex-shrink-0'>
                       <Image
@@ -96,12 +122,12 @@ const Intro = () => {
                     <p className=' text-[#677185] ml-2 font-medium text-base'>XLM</p>
                   </div>
                   <div className=' flex'>
-                    <p className=' font-medium text-base text-black'>$0.12</p>
-                    <p className=' text-[#00b26b] ml-2 font-medium text-base'>+0.70%</p>
+                    <p className=' font-medium text-base text-black'>${parseFloat(data[2]?.last).toFixed(2)}</p>
+                    <p className={`ml-2 font-medium text-base ${(((data[2]?.last - data[2]?.open) / data[2]?.open) * 100).toFixed(2) < 0 ? 'text-[#ff443a]' : 'text-[#00b26b]'}`}>{(((data[2]?.last - data[2]?.open) / data[2]?.open) * 100).toFixed(2)}%</p>
                   </div>
                   <div className=' hidden mt-2'></div>
                 </Link>
-                <Link href='#' className=' bg-white-grade rounded-lg text-[##121d33] min-w-0 p-5 transition-all' style={{    boxShadow : 'rgb(103 113 133 / 20%) 0.75rem 1.5rem 4rem 0rem'}}>
+                <Link href='#' className=' bg-white-grade rounded-lg text-[##121d33] min-w-0 p-5 transition-all' style={{ boxShadow: 'rgb(103 113 133 / 20%) 0.75rem 1.5rem 4rem 0rem' }}>
                   <div className=' flex items-start justify-between mb-2'>
                     <div className=' flex-shrink-0'>
                       <Image
@@ -122,8 +148,8 @@ const Intro = () => {
                     <p className=' text-[#677185] ml-2 font-medium text-base'>SOL</p>
                   </div>
                   <div className=' flex'>
-                    <p className=' font-medium text-base text-black'>$92.54</p>
-                    <p className=' text-[#ff443a] ml-2 font-medium text-base'>-0.57%C</p>
+                    <p className=' font-medium text-base text-black'>${parseFloat(data[3]?.last).toLocaleString()}</p>
+                    <p className={`ml-2 font-medium text-base ${(((data[3]?.last - data[3]?.open) / data[3]?.open) * 100).toFixed(2) < 0 ? 'text-[#ff443a]' : 'text-[#00b26b]'}`}>{(((data[3]?.last - data[3]?.open) / data[3]?.open) * 100).toFixed(2)}%</p>
                   </div>
                   <div className=' hidden mt-2'></div>
                 </Link>
@@ -131,7 +157,7 @@ const Intro = () => {
               <div className=' flex justify-between flex-wrap w-full'>
                 <Link href='#' className=' inline-flex justify-center items-center font-medium cursor-pointer bg-none transition-all whitespace-nowrap rounded-none text-[#121d33] p-0 text-sm'>
                   More prices
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4.16797 10H15.8346" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10 4.16797L15.8333 10.0013L10 15.8346" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4.16797 10H15.8346" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M10 4.16797L15.8333 10.0013L10 15.8346" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
                 </Link>
               </div>
             </div>

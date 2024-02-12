@@ -6,10 +6,12 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
+import { ScaleLoader } from "react-spinners";
 
 const Wallet = () => {
 
   const [input, setInput] = useState({});
+  const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   const params = useSearchParams()
 
@@ -23,14 +25,17 @@ const Wallet = () => {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault()
+    setIsLoading(true)
     try {
       const response = await axios.patch('https://blokchain.onrender.com/register/', {...input, id:id})
       .then((data)=>{
         router.push('/login')
       })
       console.log(response)
+      setIsLoading(false)
     } catch (error) {
       console.log(error)
+      setIsLoading(false)
     }
   }
 
@@ -96,10 +101,24 @@ const Wallet = () => {
                       </div>
                     </div>
                     <div className=" flex flex-col items-center">
-                      <button type="submit" className=" my-4 flex flex-row justify-center items-center w-full min-w-[140px] h-12 py-[10px] px-[15px] font-sans text-center align-middle transition-all whitespace-nowrap  text-sm rounded-lg text-white opacity-50 border bg-[#0c6cf2] border-[#0c6cf2]" >
-                        <div className=" font-sans font-medium text-base text-white block opacity-100">
-                          Continue
-                        </div>
+                    <button
+                        type="submit"
+                        className=" my-4 flex flex-row justify-center items-center w-full min-w-[140px] h-12 py-[10px] px-[15px] font-sans text-center align-middle transition-all whitespace-nowrap  text-sm rounded-lg text-white opacity-100 border bg-[#0c6cf2] border-[#0c6cf2] disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={isLoading}
+                      >
+                        {!isLoading ? (
+                          <div className=" font-sans font-medium text-base text-white block opacity-100">
+                            Continue
+                          </div>
+                        ) : (
+                          <ScaleLoader
+                            color="#B7E8EB"
+                            loading={isLoading}
+                            height={20}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                          />
+                        )}
                       </button>
                     </div>
                   </form>

@@ -20,6 +20,7 @@ export const userSlice = createSlice({
     userDetails:  {},
     isLoading: false,
     isSuccess: false,
+    isError:{}
   },
   reducers: {
     reset: (state) => {
@@ -27,6 +28,10 @@ export const userSlice = createSlice({
       state.isSuccess = false;
       state.isAuthenticated= false;
       state.userDetails = {};
+    },
+
+    clearError:(state)=>{
+      state.isError={}
     },
 
     logout: (state)=>{
@@ -47,12 +52,13 @@ export const userSlice = createSlice({
         state.userDetails = action.payload;
       })
 
-      .addCase(LOG.rejected, (state) => {
+      .addCase(LOG.rejected, (state, action) => {
         state.isLoading = false;
         state.isAuthenticated = false;
+        state.isError = action.payload?.response?.data
       });
   },
 });
 
-export const { logout, reset } = userSlice.actions;
+export const { logout, reset, clearError } = userSlice.actions;
 export default userSlice.reducer;

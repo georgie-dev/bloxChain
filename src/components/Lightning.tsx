@@ -26,7 +26,7 @@ const Lightning = () => {
                 </div>
                 <div className=' flex flex-col lg:pl-[5rem] pl-4 justify-start py-[100px]'>
                     <div className=' bg-[#ecf5fe] text-[#3d89f5] inline-flex items-center self-start mb-5 p-4 rounded-[1.25rem]'>
-                        <svg width="137" height="32" className=' h-8 w-8' fill="none"><mask id="a" height="30" maskUnits="userSpaceOnUse" width="30" x="1" y="1"><rect fill="#c4c4c4" height="28" rx="3" stroke="#f5a250" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="28" x="2" y="2"></rect></mask><g mask="url(#a)" stroke="#0c6cf2" stroke-width="2"><g stroke-linecap="round"><rect fill="#fff" height="28" rx="3" stroke-linejoin="round" width="28" x="2" y="2"></rect><path d="m27 7 3-1v24h-28v-5l3-7 4 1 7-8 7-1z" fill="#0c6cf2" fill-opacity=".36" stroke-linejoin="round"></path><path d="m16 16v14"></path><path d="m9 22v8"></path><path d="m16 2v4"></path><path d="m23 14v16"></path></g><circle cx="16" cy="11" fill="#fff" r="2"></circle></g></svg>
+                        <svg width="137" height="32" className=' h-8 w-8' fill="none"><mask id="a" height="30" maskUnits="userSpaceOnUse" width="30" x="1" y="1"><rect fill="#c4c4c4" height="28" rx="3" stroke="#f5a250" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" width="28" x="2" y="2"></rect></mask><g mask="url(#a)" stroke="#0c6cf2" strokeWidth="2"><g strokeLinecap="round"><rect fill="#fff" height="28" rx="3" strokeLinejoin="round" width="28" x="2" y="2"></rect><path d="m27 7 3-1v24h-28v-5l3-7 4 1 7-8 7-1z" fill="#0c6cf2" fillOpacity=".36" strokeLinejoin="round"></path><path d="m16 16v14"></path><path d="m9 22v8"></path><path d="m16 2v4"></path><path d="m23 14v16"></path></g><circle cx="16" cy="11" fill="#fff" r="2"></circle></g></svg>
                         <p className=' text-lg ml-[10px]'>Exchange</p>
                     </div>
                     <h2 className=' m-0 mb-[1.875rem] max-w-[30.5rem] text-[2.5rem] font-semibold'>Lightning-fast crypto trading</h2>
@@ -51,7 +51,7 @@ const Lightning = () => {
                     {/* <div className=' hidden'>
                         <div className=' text-inherit relative block box-border'>
                             <div className=' border border-[#0c6cf2] text-[#0c6cf2] left-0 flex items-center justify-center h-11 w-11 top-[460px] bottom-auto z-10 rounded-lg'>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15.8337 10H4.16699" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10.0003 15.8346L4.16699 10.0013L10.0003 4.16797" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15.8337 10H4.16699" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M10.0003 15.8346L4.16699 10.0013L10.0003 4.16797" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
                             </div>
                             <div className=' overflow-hidden relative block'></div>
                         </div>
