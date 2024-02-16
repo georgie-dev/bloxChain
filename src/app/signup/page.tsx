@@ -11,8 +11,15 @@ import { ScaleLoader } from "react-spinners";
 
 const Signup = () => {
 
+
   const [passwordShow, setPasswordShow] = useState({ password: false, confirmPassword: false });
-  const [input, setInput] = useState({});
+  const [input, setInput] = useState({
+    'email': '',
+    'password': '',
+    'password2': '',
+    'nationality': '',
+    'referral': ''
+  });
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
 
@@ -54,12 +61,12 @@ const Signup = () => {
                     className=" flex flex-row justify-center items-center text-base text-[#0c6cf2] cursor-pointer font-sans"
                   >
                     <Image
-                alt='logo'
-                src='/xBlockchain.png'
-                width={432}
-                height={48}
-                priority
-                />
+                      alt='logo'
+                      src='/xBlockchain.png'
+                      width={432}
+                      height={48}
+                      priority
+                    />
                   </Link>
                 </div>
               </div>
@@ -91,6 +98,7 @@ const Signup = () => {
                           <input
                             name="email"
                             required
+                            value={input?.email}
                             onChange={handleChange}
                             className="block w-full h-12 min-h-12 py-[6px] px-3 text-base font-normal text-[#121d33] bg-white font-sans border rounded-lg"
                             placeholder="Your Email Address"
@@ -110,6 +118,7 @@ const Signup = () => {
                           <input
                             required
                             onChange={handleChange}
+                            value={input?.password}
                             type={passwordShow.password ? "text" : "password"}
                             name="password"
                             className="block w-full h-12 min-h-12 py-[6px] px-3 text-base font-normal text-[#121d33] bg-white font-sans border rounded-lg"
@@ -142,6 +151,7 @@ const Signup = () => {
                             required
                             onChange={handleChange}
                             name='password2'
+                            value={input?.password2}
                             type={passwordShow.confirmPassword ? "text" : "password"}
                             className="block w-full h-12 min-h-12 py-[6px] px-3 text-base font-normal text-[#121d33] bg-white font-sans border rounded-lg"
                             placeholder="Re-enter Password "
@@ -171,6 +181,7 @@ const Signup = () => {
                         <div className=" flex w-full items-center relative">
                           <select name="nationality"
                             required
+                            value={input?.nationality}
                             className="block w-full  h-12 min-h-12 py-[6px] px-3 text-base font-normal text-[#121d33] bg-white font-sans border rounded-lg"
                             onChange={handleChange}>
                             <option value="" disabled>Select Nationality</option>
@@ -195,6 +206,7 @@ const Signup = () => {
                           <input
                             name="referral"
                             onChange={handleChange}
+                            value={input?.referral}
                             className="block w-full h-12 min-h-12 py-[6px] px-3 text-base font-normal text-[#121d33] bg-white font-sans border rounded-lg"
                             placeholder="Enter Referral Code"
                           />
@@ -203,7 +215,7 @@ const Signup = () => {
                       </div>
                     </div>
                     <div className=" flex flex-col items-center">
-                    <button
+                      <button
                         type="submit"
                         className=" my-4 flex flex-row justify-center items-center w-full min-w-[140px] h-12 py-[10px] px-[15px] font-sans text-center align-middle transition-all whitespace-nowrap  text-sm rounded-lg text-white opacity-100 border bg-[#0c6cf2] border-[#0c6cf2] disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={isLoading}

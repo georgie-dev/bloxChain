@@ -52,9 +52,16 @@ const Log = () => {
     if (isAuthenticated) {
       router.push("/dashboard");
     }
-    dispatch(reset());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
+
+  useEffect(()=>{
+    dispatch(reset());
+    setTimeout(()=>{
+      dispatch(clearError())
+    }, 3000)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   return (
     <div className=" m-0 p-0 h-full">
@@ -100,7 +107,7 @@ const Log = () => {
                   </div>
                   <form className=" mt-5 w-full" onSubmit={handleSubmit}>
                     <div className="w-full my-3 flex justify-center">
-                    <small className="text-center text-sm text-[#ff443a] w-full font-semibold mx-auto">{isError?.error}</small>
+                    <small className="text-center text-sm text-[#ff443a] w-full font-semibold mx-auto">{isError}</small>
                     </div>
                     <div className=" w-full flex relative flex-col mb-4">
                       <div className=" last:mr-0 *:max-h-[26rem] transition-all relative w-full">
@@ -115,6 +122,7 @@ const Log = () => {
                             required
                             name="email"
                             onChange={handleChange}
+                            value={input.email}
                             className="block w-full h-12 min-h-12 py-[6px] px-3 text-base font-normal text-[#121d33] bg-white font-sans border rounded-lg"
                             placeholder="Your Email Address"
                           />
@@ -134,6 +142,7 @@ const Log = () => {
                             type={password ? "text" : "password"}
                             name="password"
                             required
+                            value={input.password}
                             onChange={handleChange}
                             className="block w-full h-12 min-h-12 py-[6px] px-3 text-base font-normal text-[#121d33] bg-white font-sans border rounded-lg"
                             placeholder="Enter Password"

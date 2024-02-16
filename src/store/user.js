@@ -20,7 +20,8 @@ export const userSlice = createSlice({
     userDetails:  {},
     isLoading: false,
     isSuccess: false,
-    isError:{}
+    isError:'', 
+    prices: []
   },
   reducers: {
     reset: (state) => {
@@ -30,13 +31,19 @@ export const userSlice = createSlice({
       state.userDetails = {};
     },
 
-    clearError:(state)=>{
-      state.isError={}
+    setError: (state, action)=>{
+      state.isError = action.payload
     },
-
+    setPrices: (state, action)=>{
+      state.prices = action.payload
+    },
+    clearError:(state)=>{
+      state.isError=''
+    },
     logout: (state)=>{
       state.isAuthenticated= false
       state.userDetails={}
+      state.prices=[]
     }
   },
   extraReducers: (builder) => {
@@ -55,10 +62,10 @@ export const userSlice = createSlice({
       .addCase(LOG.rejected, (state, action) => {
         state.isLoading = false;
         state.isAuthenticated = false;
-        state.isError = action.payload?.response?.data
+        state.isError = action.payload?.response?.data?.error
       });
   },
 });
 
-export const { logout, reset, clearError } = userSlice.actions;
+export const { logout, reset, clearError , setError, setPrices} = userSlice.actions;
 export default userSlice.reducer;
