@@ -30,9 +30,9 @@ const Dashboard = () => {
     }
 
     interface Coins {
-        btc: number,
-        eth: number,
-        sol: number,
+        btc: string,
+        eth: string,
+        sol: string,
         id: number,
         user: number,
     }
@@ -140,10 +140,10 @@ const Dashboard = () => {
                                             </div>
                                             <div className=' flex flex-col items-end'>
                                                 <div className=' flex flex-row justify-start items-center'>
-                                                    <div className=' font-sans font-medium text-[#353f52] cursor-pointer block text-base'>${(cryptoData[0]?.btc * parseFloat(data[0]?.last)).toLocaleString()}</div>
+                                                    <div className=' font-sans font-medium text-[#353f52] cursor-pointer block text-base'>${(parseFloat(cryptoData[0]?.btc) * parseFloat(data[0]?.last)).toLocaleString()}</div>
                                                 </div>
                                                 <div className=' mt-[5px] flex flex-row justify-start items-center'>
-                                                    <div className=' text-xs whitespace-nowrap font-sans font-medium text-[#98a1b2] block cursor-pointer'>{(cryptoData[0]?.btc)?.toFixed(3)} BTC</div>
+                                                    <div className=' text-xs whitespace-nowrap font-sans font-medium text-[#98a1b2] block cursor-pointer'>{parseFloat(cryptoData[0]?.btc)?.toFixed(3)} BTC</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -164,10 +164,10 @@ const Dashboard = () => {
                                             </div>
                                             <div className=' flex flex-col items-end'>
                                                 <div className=' flex flex-row justify-start items-center'>
-                                                    <div className=' font-sans font-medium text-[#353f52] cursor-pointer block text-base'>${(cryptoData[0]?.eth * parseFloat(data[1]?.last)).toLocaleString()}</div>
+                                                    <div className=' font-sans font-medium text-[#353f52] cursor-pointer block text-base'>${(parseFloat(cryptoData[0]?.eth) * parseFloat(data[1]?.last)).toLocaleString()}</div>
                                                 </div>
                                                 <div className=' mt-[5px] flex flex-row justify-start items-center'>
-                                                    <div className=' text-xs whitespace-nowrap font-sans font-medium text-[#98a1b2] block cursor-pointer'>{(cryptoData[0]?.eth)?.toFixed(3)} ETH</div>
+                                                    <div className=' text-xs whitespace-nowrap font-sans font-medium text-[#98a1b2] block cursor-pointer'>{parseFloat(cryptoData[0]?.eth)?.toFixed(3)} ETH</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -188,10 +188,10 @@ const Dashboard = () => {
                                             </div>
                                             <div className=' flex flex-col items-end'>
                                                 <div className=' flex flex-row justify-start items-center'>
-                                                    <div className=' font-sans font-medium text-[#353f52] cursor-pointer block text-base'>${(cryptoData[0]?.sol * parseFloat(data[2]?.last)).toLocaleString()}</div>
+                                                    <div className=' font-sans font-medium text-[#353f52] cursor-pointer block text-base'>${(parseFloat(cryptoData[0]?.sol) * parseFloat(data[2]?.last)).toLocaleString()}</div>
                                                 </div>
                                                 <div className=' mt-[5px] flex flex-row justify-start items-center'>
-                                                    <div className=' text-xs whitespace-nowrap font-sans font-medium text-[#98a1b2] block cursor-pointer'>{(cryptoData[0]?.sol)?.toFixed(3)} SOL</div>
+                                                    <div className=' text-xs whitespace-nowrap font-sans font-medium text-[#98a1b2] block cursor-pointer'>{parseFloat(cryptoData[0]?.sol)?.toFixed(3)} SOL</div>
                                                 </div>
                                             </div>
                                         </div>
